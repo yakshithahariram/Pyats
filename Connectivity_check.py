@@ -19,29 +19,20 @@ class CommonSetup(aetest.CommonSetup):
         # get corresponding links
         links = ios1.find_links(ios2)
 
-        assert len(links) >= 1, 'require one link between ios1 and ios2'
-
 @aetest.loop(device=('ios1', 'ios2'))
 class PingTestcase(aetest.Testcase):
 
    @aetest.subsection
-    def establish_connections(self, steps, ios1, ios2):
-        with steps.start('Connecting to %s' % ios1.name):
+    def establish_connections(self, ios1, ios2):
             ios1.connect()
-
-        with steps.start('Connecting to %s' % ios2.name):
             ios2.connect()
-        logger.info(' connecting to %s  % ios2.name is successful')
 
 
 class CommonCleanup(aetest.CommonCleanup):
 
     @aetest.subsection
-    def disconnect(self, steps, ios1, ios2):
-        with steps.start('Disconnecting from %s' % ios1.name):
+    def disconnect(self, ios1, ios2):
             ios1.disconnect()
-
-        with steps.start('Disconnecting from %s' % ios2.name):
             ios2.disconnect()
 
 if __name__ == '__main__':
