@@ -2,7 +2,9 @@ testbed:
     name: IOS_Testbed
     credentials:
         default:
-            username: ciso
+            username: cisco
+            password: cisco
+        enable:
             password: cisco
 devices:
     CiscoL3-1: # <----- must match to your device hostname in the prompt
