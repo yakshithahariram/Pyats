@@ -25,15 +25,15 @@ class tc_one(aetest.Testcase):
     @ aetest.test
     def ping_test(self):
         log.info("checking whether routers are up/down by using ping ")
-        ip = "192.168.1.246:"
+        ip = ["192.168.1.150", "192.168.1.151", "192.168.1.152", "192.168.1.153"]
         list = ["32769","32770","32771","32782"]
         ports_up = []
         ports_down = []
         i=0
         while(i<4):
-                z = ip+list[i]
-                result = os.system(" ping -c 1" +z)
-                if result ==0:
+                z = ip[i]
+                result = os.system(" ping -c 1 " +z)
+                if result == 0:
                         ports_up.append(list[i])
                         log.info("%s is up" %(list[i]))
                         i = i+1
@@ -41,6 +41,8 @@ class tc_one(aetest.Testcase):
                         ports_down.append(list[i])
                         log.info("%s is down" %(list[i]))
                         i=i+1
+        log.info("ports up %s" %(ports_up))
+        log.info("ports down %s" %(ports_down))
 
 #####################################################################
 ####                       COMMON CLEANUP SECTION                 ###
