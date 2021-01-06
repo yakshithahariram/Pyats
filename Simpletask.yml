@@ -3,12 +3,12 @@
 
     tasks:
     - name: Run simple task pyats IOS_job.py file
-      command: pyats run job IOS_job.py --html-logs /home/vagrant/pyats/venv/Pyats
+      command: pyats run job IOS_job.py --html-logs 
       become: true
       register: result
 
     - name: Display ports status
-      shell: /usr/bin/python3 /home/vagrant/pyats/venv/Pyats/Simpletask.py
+      shell: /usr/bin/python3 Simpletask.py
       register: pythonscript
 
     - name: disply python script output
