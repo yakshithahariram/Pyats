@@ -19,9 +19,9 @@
       mail:
         host: smtp.gmail.com
         port: 587
-        username: robotframework.respiro@gmail.com
-        password: RF_Simpletask
-        to: <hsallepalli@respiro.com.au>
+        username: xxx
+        password: xxx
+        to: <xxx>
         subject: PyATS-EVE-NG ports status
         body: 'PyATS: {{ pythonscript.stdout }}'
       delegate_to: localhost
