@@ -8,7 +8,7 @@ def main():
     i = 0
     while(i<4):
        z = portlist[i]+" is up"
-       if z in open("/home/vagrant/pyats/venv/Pyats/TaskLog.IOS_job.html").read():
+       if z in open("/var/lib/awx/venv/pyats/pyatslogs/TaskLog.IOS_job.html").read():
           ports_up.append(portlist[i])
           i = i+1
        else:
