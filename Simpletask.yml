@@ -3,7 +3,7 @@
 
     tasks:
     - name: Run simple task pyats IOS_job.py file
-      command: pyats run job IOS_job.py --html-logs 
+      command: pyats run job IOS_job.py --html-logs /var/lib/awx/venv/pyats/pyatslogs/
       become: true
       register: result
 
@@ -19,9 +19,11 @@
       mail:
         host: smtp.gmail.com
         port: 587
-        username: xxx
-        password: xxx
-        to: <xxx>
+        username: robotframework.respiro@gmail.com
+        password: RF_Simpletask
+        to: hsallepalli@respiro.com.au
         subject: PyATS-EVE-NG ports status
         body: 'PyATS: {{ pythonscript.stdout }}'
+        attach:
+        - /var/lib/awx/venv/pyats/pyatslogs/TaskLog.IOS_job.html
       delegate_to: localhost
